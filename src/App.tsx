@@ -6,6 +6,8 @@ import Dashboard from './pages/Dashboard';
 import Placeholder from './pages/Placeholder';
 import ClientsList from './pages/clients/ClientsList';
 import ClientDetail from './pages/clients/ClientDetail';
+import ProjectsList from './pages/projects/ProjectsList';
+import ProjectDetail from './pages/projects/ProjectDetail';
 
 export default function App() {
   return (
@@ -20,7 +22,8 @@ export default function App() {
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/clients" element={<ClientsList />} />
                 <Route path="/clients/:id" element={<ClientDetail />} />
-                <Route path="/projects" element={<Placeholder title="Projects" />} />
+                <Route path="/projects" element={<ProjectsList />} />
+                <Route path="/projects/:id" element={<ProjectDetail />} />
                 <Route path="/quotations" element={<Placeholder title="Quotations" />} />
                 <Route path="/pre-production" element={<Placeholder title="Pre-Production" />} />
                 <Route path="/shoot" element={<Placeholder title="Shoot" />} />

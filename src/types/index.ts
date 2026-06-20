@@ -47,5 +47,10 @@ export interface Project {
   start_date: string | null;
   delivery_date: string | null;
   presentation_date: string | null;
+  manager_id: string | null;
   created_at: string;
+}
+
+export interface ProjectWithClient extends Project {
+  client: { name: string; company: string | null } | null;
 }
