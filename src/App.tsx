@@ -13,6 +13,7 @@ import QuotationBuilder from './pages/quotations/QuotationBuilder';
 import QuotationPrint from './pages/quotations/QuotationPrint';
 import FinancePage from './pages/finance/FinancePage';
 import ReportsPage from './pages/reports/ReportsPage';
+import CrewPage from './pages/crew/CrewPage';
 
 export default function App() {
   return (
@@ -41,9 +42,9 @@ export default function App() {
                 <Route path="/quotations/:id" element={<QuotationBuilder />} />
                 <Route path="/finance" element={<FinancePage />} />
                 <Route path="/reports" element={<ReportsPage />} />
+                <Route path="/crew" element={<CrewPage />} />
                 <Route path="/pre-production" element={<Placeholder title="Pre-Production" />} />
                 <Route path="/shoot" element={<Placeholder title="Shoot" />} />
-                <Route path="/crew" element={<Placeholder title="Crew" />} />
                 <Route path="/assets" element={<Placeholder title="Assets" />} />
                 <Route path="/settings" element={<Placeholder title="Settings" />} />
               </Routes>
