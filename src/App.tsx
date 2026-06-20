@@ -4,6 +4,8 @@ import AppLayout from './components/layout/AppLayout';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Placeholder from './pages/Placeholder';
+import ClientsList from './pages/clients/ClientsList';
+import ClientDetail from './pages/clients/ClientDetail';
 
 export default function App() {
   return (
@@ -16,7 +18,8 @@ export default function App() {
             <AppLayout>
               <Routes>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="/clients" element={<Placeholder title="Clients" />} />
+                <Route path="/clients" element={<ClientsList />} />
+                <Route path="/clients/:id" element={<ClientDetail />} />
                 <Route path="/projects" element={<Placeholder title="Projects" />} />
                 <Route path="/quotations" element={<Placeholder title="Quotations" />} />
                 <Route path="/pre-production" element={<Placeholder title="Pre-Production" />} />

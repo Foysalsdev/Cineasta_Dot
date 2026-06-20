@@ -28,6 +28,7 @@ export interface Client {
   email: string | null;
   phone: string | null;
   address: string | null;
+  notes: string | null;
   advance_payment_pct: number;
   final_payment_pct: number;
   final_payment_days: number;
