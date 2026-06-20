@@ -2,9 +2,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Loader2, Printer, ArrowLeft } from 'lucide-react';
 import { useQuotation } from '../../hooks/useQuotations';
 import { formatBDT, formatDate } from '../../lib/format';
+import { Logo } from '../../components/ui/Logo';
 
-// A4 print view of a quotation, mirroring the Excel "Budget (Quotation)" sheet.
-// Rendered without the app sidebar/topbar; browser Print → "Save as PDF".
 export default function QuotationPrint() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -41,12 +40,7 @@ export default function QuotationPrint() {
       <div className="quote-sheet" style={{ maxWidth: 794, margin: '20px auto', background: '#fff', color: '#111', padding: 40, boxShadow: '0 1px 8px rgba(0,0,0,0.12)' }}>
         <div className="flex items-start justify-between" style={{ borderBottom: '2px solid #1A5C38', paddingBottom: 12, marginBottom: 16 }}>
           <div className="flex items-center" style={{ gap: 12 }}>
-            <img
-              src="/cineasta-logo.png"
-              alt="Cineasta Dot"
-              style={{ width: 48, height: 48, objectFit: 'contain' }}
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            />
+            <Logo size={48} />
             <div>
               <div style={{ fontSize: 22, fontWeight: 700, color: '#1A5C38', letterSpacing: '0.5px' }}>Cineasta Dot</div>
               <div style={{ fontSize: 11, color: '#777' }}>Production House</div>

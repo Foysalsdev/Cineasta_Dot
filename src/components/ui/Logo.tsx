@@ -1,35 +1,19 @@
-import { useState } from 'react';
-
-// Renders the Cineasta Dot logo from /cineasta-logo.png.
-// Until that file is added to /public, it falls back to a green monogram chip
-// so nothing ever looks broken.
-export function Logo({ size = 28, onLight = false }: { size?: number; onLight?: boolean }) {
-  const [failed, setFailed] = useState(false);
-
-  if (failed) {
-    return (
-      <div
-        className="flex items-center justify-center shrink-0"
-        style={{ width: size, height: size, borderRadius: size * 0.22, background: 'var(--brand)' }}
-      >
-        <span style={{ color: '#fff', fontWeight: 700, fontSize: size * 0.5, lineHeight: 1 }}>C</span>
-      </div>
-    );
-  }
-
+// Cineasta emblem — recreated as inline SVG (two stacked arches forming the mark).
+// Vector, so it stays crisp at any size and needs no image file.
+export function Logo({ size = 28, color = '#1A6B3C' }: { size?: number; color?: string }) {
   return (
-    <img
-      src="/cineasta-logo.png"
-      alt="Cineasta Dot"
-      onError={() => setFailed(true)}
-      style={{
-        width: size,
-        height: size,
-        objectFit: 'contain',
-        borderRadius: size * 0.22,
-        // white plate so the logo reads on dark backgrounds; transparent on light surfaces
-        background: onLight ? 'transparent' : '#fff',
-      }}
-    />
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      role="img"
+      aria-label="Cineasta"
+      style={{ display: 'block', flexShrink: 0 }}
+    >
+      <g fill={color}>
+        <path fillRule="evenodd" d="M8 80 A42 42 0 0 0 92 80 Z M32 80 A18 18 0 0 0 68 80 Z" />
+        <path fillRule="evenodd" d="M23 35 A27 27 0 0 0 77 35 Z M38 35 A12 12 0 0 0 62 35 Z" />
+      </g>
+    </svg>
   );
 }
