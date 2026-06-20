@@ -9,6 +9,9 @@ import { Modal } from '../../components/ui/Modal';
 import { PROJECT_STATES, stateMeta } from '../../lib/projectStatus';
 import { formatBDT, formatDate } from '../../lib/format';
 import ProjectForm from './ProjectForm';
+import QuotationTab from './tabs/QuotationTab';
+import ExpensesTab from './tabs/ExpensesTab';
+import PaymentsTab from './tabs/PaymentsTab';
 
 const TABS = ['Overview', 'Quotation', 'Expenses', 'Payments', 'Invoices', 'Documents', 'Notes'] as const;
 type Tab = (typeof TABS)[number];
@@ -16,8 +19,8 @@ type Tab = (typeof TABS)[number];
 function Money({ label, value, tone }: { label: string; value: string; tone?: string }) {
   return (
     <div className="rounded-lg p-3.5 border shadow-card elevate" style={{ background: 'var(--card)', borderColor: 'var(--border)' }}>
-      <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>{label}</p>
-      <p className="mt-1 text-lg font-semibold font-mono" style={{ color: tone ?? 'var(--text-primary)' }}>{value}</p>
+      <p className="text-[11px] font-medium uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>{label}</p>
+      <p className="mt-1.5 text-lg font-semibold font-mono" style={{ color: tone ?? 'var(--text-primary)' }}>{value}</p>
     </div>
   );
 }
@@ -138,6 +141,12 @@ export default function ProjectDetail() {
             </Panel>
           </div>
         </div>
+      ) : tab === 'Quotation' ? (
+        <QuotationTab projectId={project.id} projectTitle={project.title} canEdit={canEdit} />
+      ) : tab === 'Expenses' ? (
+        <ExpensesTab projectId={project.id} canEdit={canEdit} />
+      ) : tab === 'Payments' ? (
+        <PaymentsTab projectId={project.id} canEdit={canEdit} />
       ) : (
         <div className="rounded-md border px-4 py-12 text-center" style={{ borderColor: 'var(--border)' }}>
           <Lock size={22} className="mx-auto mb-3 opacity-40" style={{ color: 'var(--text-muted)' }} />
