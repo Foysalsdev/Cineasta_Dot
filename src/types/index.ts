@@ -1,6 +1,7 @@
 export type ProjectStatus =
   | 'quoted' | 'ppm_prep' | 'shoot' | 'post_production'
-  | 'invoiced' | 'paid' | 'cancelled';
+  | 'invoiced' | 'paid' | 'cancelled'
+  | 'draft' | 'active' | 'completed' | 'on_hold';
 
 export interface Profile {
   id: string;

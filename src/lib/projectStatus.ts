@@ -1,12 +1,7 @@
 import { ProjectStatus } from '../types';
 
-export interface StatusMeta {
-  key: ProjectStatus;
-  label: string;
-  color: string;
-}
+export interface StatusMeta { key: ProjectStatus; label: string; color: string; }
 
-// Pipeline order (cancelled is handled separately, not a board column).
 export const PIPELINE: StatusMeta[] = [
   { key: 'quoted', label: 'Quoted', color: '#6B7280' },
   { key: 'ppm_prep', label: 'PPM / Prep', color: '#3B82F6' },
@@ -17,10 +12,17 @@ export const PIPELINE: StatusMeta[] = [
 ];
 
 export const CANCELLED: StatusMeta = { key: 'cancelled', label: 'Cancelled', color: '#EF4444' };
-
 export const ALL_STATUSES: StatusMeta[] = [...PIPELINE, CANCELLED];
-
-export const statusMeta = (s: ProjectStatus): StatusMeta =>
-  ALL_STATUSES.find((m) => m.key === s) ?? CANCELLED;
+export const statusMeta = (s: ProjectStatus): StatusMeta => ALL_STATUSES.find((m) => m.key === s) ?? CANCELLED;
 
 export const PROJECT_TYPES = ['TVC', 'OVC', 'AV', 'Digital', 'Photoshoot', 'Documentary', 'Other'];
+
+export const PROJECT_STATES = [
+  { key: 'draft', label: 'Draft', color: '#6B7280' },
+  { key: 'active', label: 'Active', color: '#3B82F6' },
+  { key: 'completed', label: 'Completed', color: '#2ECC71' },
+  { key: 'on_hold', label: 'On Hold', color: '#F59E0B' },
+  { key: 'cancelled', label: 'Cancelled', color: '#EF4444' },
+] as const;
+
+export const stateMeta = (s: string) => PROJECT_STATES.find((x) => x.key === s) ?? PROJECT_STATES[0];
