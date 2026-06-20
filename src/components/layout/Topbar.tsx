@@ -7,7 +7,7 @@ export default function Topbar() {
   const { signOut } = useAuth();
 
   return (
-    <header className="flex items-center justify-between gap-4 px-5 py-2.5 border-b" style={{ borderColor: 'var(--border)', background: 'var(--panel)' }}>
+    <header className="glass sticky top-0 z-10 flex items-center justify-between gap-4 px-5 py-2.5 border-b" style={{ borderColor: 'var(--border)' }}>
       <div className="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm flex-1 max-w-xs" style={{ background: 'var(--input-bg)', color: 'var(--text-muted)' }}>
         <Search size={14} />
         <span>Search...</span>

@@ -15,7 +15,7 @@ type Tab = (typeof TABS)[number];
 
 function Money({ label, value, tone }: { label: string; value: string; tone?: string }) {
   return (
-    <div className="rounded-md p-3 border" style={{ background: 'var(--card)', borderColor: 'var(--border)' }}>
+    <div className="rounded-lg p-3.5 border shadow-card elevate" style={{ background: 'var(--card)', borderColor: 'var(--border)' }}>
       <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>{label}</p>
       <p className="mt-1 text-lg font-semibold font-mono" style={{ color: tone ?? 'var(--text-primary)' }}>{value}</p>
     </div>
