@@ -11,6 +11,7 @@ import ProjectDetail from './pages/projects/ProjectDetail';
 import QuotationsList from './pages/quotations/QuotationsList';
 import QuotationBuilder from './pages/quotations/QuotationBuilder';
 import QuotationPrint from './pages/quotations/QuotationPrint';
+import FinancePage from './pages/finance/FinancePage';
 
 export default function App() {
   return (
@@ -37,10 +38,10 @@ export default function App() {
                 <Route path="/projects/:id" element={<ProjectDetail />} />
                 <Route path="/quotations" element={<QuotationsList />} />
                 <Route path="/quotations/:id" element={<QuotationBuilder />} />
+                <Route path="/finance" element={<FinancePage />} />
                 <Route path="/pre-production" element={<Placeholder title="Pre-Production" />} />
                 <Route path="/shoot" element={<Placeholder title="Shoot" />} />
                 <Route path="/crew" element={<Placeholder title="Crew" />} />
-                <Route path="/finance" element={<Placeholder title="Finance" />} />
                 <Route path="/assets" element={<Placeholder title="Assets" />} />
                 <Route path="/reports" element={<Placeholder title="Reports" />} />
                 <Route path="/settings" element={<Placeholder title="Settings" />} />
