@@ -41,7 +41,9 @@ export default function Login() {
 
           <label className="block text-xs mb-1" style={{ color: 'var(--text-secondary)' }}>Email</label>
           <input
-            type="email" value={email} onChange={(e) => setEmail(e.target.value)}
+            type="email" value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onInput={(e) => setEmail((e.target as HTMLInputElement).value)}
             className="w-full rounded-md px-3 py-2 text-sm mb-3 outline-none"
             style={{ background: 'var(--input-bg)', color: 'var(--text-primary)', border: '1px solid var(--border)' }}
             placeholder="you@cineastadot.com"
@@ -51,7 +53,9 @@ export default function Login() {
             <>
               <label className="block text-xs mb-1" style={{ color: 'var(--text-secondary)' }}>Password</label>
               <input
-                type="password" value={password} onChange={(e) => setPassword(e.target.value)}
+                type="password" value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onInput={(e) => setPassword((e.target as HTMLInputElement).value)}
                 className="w-full rounded-md px-3 py-2 text-sm mb-4 outline-none"
                 style={{ background: 'var(--input-bg)', color: 'var(--text-primary)', border: '1px solid var(--border)' }}
                 placeholder="••••••••"
@@ -82,12 +86,4 @@ export default function Login() {
           >
             {mode === 'password' ? 'Sign in with a magic link instead' : 'Sign in with password instead'}
           </button>
-        </div>
-
-        <p className="text-center text-xs mt-4" style={{ color: 'var(--text-muted)' }}>
-          Cineasta Dot — internal use only
-        </p>
-      </div>
-    </div>
-  );
-}
+      
