@@ -29,7 +29,6 @@ export default function QuotationPrint() {
 
   return (
     <div style={{ background: '#f3f3f3', minHeight: '100vh' }}>
-      {/* Toolbar — hidden when printing */}
       <div className="no-print flex items-center justify-between px-5 py-3" style={{ background: '#fff', borderBottom: '1px solid #e5e5e5', position: 'sticky', top: 0 }}>
         <button onClick={() => navigate(`/quotations/${q.id}`)} className="flex items-center gap-1.5 text-sm" style={{ color: '#555' }}>
           <ArrowLeft size={15} /> Back to editor
@@ -39,12 +38,19 @@ export default function QuotationPrint() {
         </button>
       </div>
 
-      {/* A4 sheet */}
       <div className="quote-sheet" style={{ maxWidth: 794, margin: '20px auto', background: '#fff', color: '#111', padding: 40, boxShadow: '0 1px 8px rgba(0,0,0,0.12)' }}>
         <div className="flex items-start justify-between" style={{ borderBottom: '2px solid #1A5C38', paddingBottom: 12, marginBottom: 16 }}>
-          <div>
-            <div style={{ fontSize: 22, fontWeight: 700, color: '#1A5C38', letterSpacing: '0.5px' }}>CINEASTA FILMS</div>
-            <div style={{ fontSize: 11, color: '#777' }}>Production House</div>
+          <div className="flex items-center" style={{ gap: 12 }}>
+            <img
+              src="/cineasta-logo.png"
+              alt="Cineasta Dot"
+              style={{ width: 48, height: 48, objectFit: 'contain' }}
+              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+            />
+            <div>
+              <div style={{ fontSize: 22, fontWeight: 700, color: '#1A5C38', letterSpacing: '0.5px' }}>Cineasta Dot</div>
+              <div style={{ fontSize: 11, color: '#777' }}>Production House</div>
+            </div>
           </div>
           <div style={{ textAlign: 'right' }}>
             <div style={{ fontSize: 14, fontWeight: 600 }}>QUOTATION</div>
@@ -54,7 +60,6 @@ export default function QuotationPrint() {
           </div>
         </div>
 
-        {/* Production Detail */}
         <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 6 }}>Production Detail</div>
         <div className="grid grid-cols-2 gap-x-8" style={{ marginBottom: 18 }}>
           <div>
@@ -74,7 +79,6 @@ export default function QuotationPrint() {
           </div>
         </div>
 
-        {/* Cost table */}
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
           <thead>
             <tr style={{ background: '#1A5C38', color: '#fff' }}>
@@ -100,7 +104,6 @@ export default function QuotationPrint() {
         </table>
         <div style={{ fontSize: 10, color: '#888', textAlign: 'right', marginTop: 4 }}>EXCLUDING TAX &amp; VAT</div>
 
-        {/* Terms */}
         {terms && (
           <div style={{ marginTop: 20 }}>
             <div style={{ fontSize: 12, fontWeight: 700, marginBottom: 6 }}>Terms &amp; Conditions</div>

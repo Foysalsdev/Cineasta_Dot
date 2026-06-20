@@ -4,6 +4,7 @@ import {
   Users2, Wallet, FolderOpen, BarChart3, Settings,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { Logo } from '../ui/Logo';
 
 const NAV = [
   { to: '/', label: 'Dashboard', icon: LayoutDashboard, module: 'dashboard' },
@@ -25,9 +26,7 @@ export default function Sidebar() {
   return (
     <aside className="hidden md:flex flex-col w-56 shrink-0 border-r" style={{ background: 'var(--panel)', borderColor: 'var(--border)' }}>
       <div className="flex items-center gap-2 px-5 py-4 border-b" style={{ borderColor: 'var(--border)' }}>
-        <div className="w-7 h-7 rounded-md flex items-center justify-center" style={{ background: 'var(--brand)' }}>
-          <Clapperboard size={15} color="#fff" />
-        </div>
+        <Logo size={28} />
         <span className="font-semibold text-sm">Cineasta Dot</span>
       </div>
 

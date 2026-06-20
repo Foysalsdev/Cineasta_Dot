@@ -1,41 +1,28 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { Clapperboard, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
+import { Logo } from '../components/ui/Logo';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (data.session) navigate('/', { replace: true });
-    });
-  }, [navigate]);
 
   async function handleLogin() {
     if (!email || !password) return;
     setLoading(true);
     setError(null);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) {
-      setError(error.message);
-      setLoading(false);
-    } else {
-      navigate('/', { replace: true });
-    }
+    if (error) setError(error.message);
+    setLoading(false);
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4" style={{ background: 'var(--bg)' }}>
       <div className="w-full max-w-sm">
-        <div className="flex items-center gap-2 justify-center mb-7">
-          <div className="w-9 h-9 rounded-md flex items-center justify-center" style={{ background: 'var(--brand)' }}>
-            <Clapperboard size={18} color="#fff" />
-          </div>
+        <div className="flex items-center gap-2.5 justify-center mb-7">
+          <Logo size={36} />
           <span className="text-lg font-semibold">Cineasta Dot Insight</span>
         </div>
 
