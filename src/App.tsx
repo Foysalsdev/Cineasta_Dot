@@ -14,6 +14,7 @@ import QuotationPrint from './pages/quotations/QuotationPrint';
 import FinancePage from './pages/finance/FinancePage';
 import ReportsPage from './pages/reports/ReportsPage';
 import CrewPage from './pages/crew/CrewPage';
+import SettingsPage from './pages/settings/SettingsPage';
 
 export default function App() {
   return (
@@ -43,10 +44,10 @@ export default function App() {
                 <Route path="/finance" element={<FinancePage />} />
                 <Route path="/reports" element={<ReportsPage />} />
                 <Route path="/crew" element={<CrewPage />} />
+                <Route path="/settings" element={<SettingsPage />} />
                 <Route path="/pre-production" element={<Placeholder title="Pre-Production" />} />
                 <Route path="/shoot" element={<Placeholder title="Shoot" />} />
                 <Route path="/assets" element={<Placeholder title="Assets" />} />
-                <Route path="/settings" element={<Placeholder title="Settings" />} />
               </Routes>
             </AppLayout>
           </ProtectedRoute>
