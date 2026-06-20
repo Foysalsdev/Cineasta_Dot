@@ -3,7 +3,6 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AppLayout from './components/layout/AppLayout';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import Placeholder from './pages/Placeholder';
 import ClientsList from './pages/clients/ClientsList';
 import ClientDetail from './pages/clients/ClientDetail';
 import ProjectsList from './pages/projects/ProjectsList';
@@ -18,6 +17,7 @@ import SettingsPage from './pages/settings/SettingsPage';
 import PreProductionPage from './pages/preprod/PreProductionPage';
 import ShootPage from './pages/shoot/ShootPage';
 import PostProductionPage from './pages/postprod/PostProductionPage';
+import AssetsPage from './pages/assets/AssetsPage';
 
 export default function App() {
   return (
@@ -51,7 +51,7 @@ export default function App() {
                 <Route path="/pre-production" element={<PreProductionPage />} />
                 <Route path="/shoot" element={<ShootPage />} />
                 <Route path="/post-production" element={<PostProductionPage />} />
-                <Route path="/assets" element={<Placeholder title="Assets" />} />
+                <Route path="/assets" element={<AssetsPage />} />
               </Routes>
             </AppLayout>
           </ProtectedRoute>
