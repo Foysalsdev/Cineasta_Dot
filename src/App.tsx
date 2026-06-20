@@ -17,6 +17,7 @@ import CrewPage from './pages/crew/CrewPage';
 import SettingsPage from './pages/settings/SettingsPage';
 import PreProductionPage from './pages/preprod/PreProductionPage';
 import ShootPage from './pages/shoot/ShootPage';
+import PostProductionPage from './pages/postprod/PostProductionPage';
 
 export default function App() {
   return (
@@ -49,6 +50,7 @@ export default function App() {
                 <Route path="/settings" element={<SettingsPage />} />
                 <Route path="/pre-production" element={<PreProductionPage />} />
                 <Route path="/shoot" element={<ShootPage />} />
+                <Route path="/post-production" element={<PostProductionPage />} />
                 <Route path="/assets" element={<Placeholder title="Assets" />} />
               </Routes>
             </AppLayout>

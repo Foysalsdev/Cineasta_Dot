@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Users, Clapperboard, FileText, Film, Camera,
-  Users2, Wallet, FolderOpen, BarChart3, Settings,
+  Users2, Wallet, FolderOpen, BarChart3, Settings, Scissors,
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { Logo } from '../ui/Logo';
@@ -13,6 +13,7 @@ const NAV = [
   { to: '/quotations', label: 'Quotations', icon: FileText, module: 'quotations' },
   { to: '/pre-production', label: 'Pre-Production', icon: Film, module: 'pre_production' },
   { to: '/shoot', label: 'Shoot', icon: Camera, module: 'shoot' },
+  { to: '/post-production', label: 'Post-Production', icon: Scissors, module: 'post_production' },
   { to: '/crew', label: 'Crew', icon: Users2, module: 'crew' },
   { to: '/finance', label: 'Finance', icon: Wallet, module: 'finance' },
   { to: '/assets', label: 'Assets', icon: FolderOpen, module: 'assets' },
