@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { Clapperboard, Loader2 } from 'lucide-react';
 
@@ -7,14 +8,25 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) navigate('/', { replace: true });
+    });
+  }, [navigate]);
 
   async function handleLogin() {
     if (!email || !password) return;
     setLoading(true);
     setError(null);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (error) setError(error.message);
-    setLoading(false);
+    if (error) {
+      setError(error.message);
+      setLoading(false);
+    } else {
+      navigate('/', { replace: true });
+    }
   }
 
   return (
@@ -67,7 +79,7 @@ export default function Login() {
         </div>
 
         <p className="text-center text-xs mt-4" style={{ color: 'var(--text-muted)' }}>
-          Cineasta Dot -- internal use only
+          Cineasta Dot — internal use only
         </p>
       </div>
     </div>
