@@ -12,6 +12,9 @@ import ProjectForm from './ProjectForm';
 import QuotationTab from './tabs/QuotationTab';
 import ExpensesTab from './tabs/ExpensesTab';
 import PaymentsTab from './tabs/PaymentsTab';
+import InvoicesTab from './tabs/InvoicesTab';
+import DocumentsTab from './tabs/DocumentsTab';
+import NotesTab from './tabs/NotesTab';
 
 const TABS = ['Overview', 'Quotation', 'Expenses', 'Payments', 'Invoices', 'Documents', 'Notes'] as const;
 type Tab = (typeof TABS)[number];
@@ -147,6 +150,12 @@ export default function ProjectDetail() {
         <ExpensesTab projectId={project.id} canEdit={canEdit} />
       ) : tab === 'Payments' ? (
         <PaymentsTab projectId={project.id} canEdit={canEdit} />
+      ) : tab === 'Invoices' ? (
+        <InvoicesTab projectId={project.id} canEdit={canEdit} />
+      ) : tab === 'Documents' ? (
+        <DocumentsTab projectId={project.id} canEdit={canEdit} />
+      ) : tab === 'Notes' ? (
+        <NotesTab projectId={project.id} canEdit={canEdit} />
       ) : (
         <div className="rounded-md border px-4 py-12 text-center" style={{ borderColor: 'var(--border)' }}>
           <Lock size={22} className="mx-auto mb-3 opacity-40" style={{ color: 'var(--text-muted)' }} />
